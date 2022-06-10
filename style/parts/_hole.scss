@@ -1,0 +1,17 @@
+@use "sass:math";
+
+@mixin hole($scale, $holeColor) {
+  .hole {
+    background: $holeColor;
+    --p: calc(#{5 * math.div($scale, 2)}px * var(--t));
+    --n: calc(0.5 * var(--s) * #{20px * $scale} + (var(--p) * -1));
+    width: var(--n);
+    height: calc(var(--n) + var(--p));
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    top: calc(var(--y) * #{4px * $scale});
+    left: calc(var(--x) * #{4px * $scale});
+    z-index: -1;
+  }
+}

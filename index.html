@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponge bob</title>
+  <link rel="stylesheet" href="style/index.css">
+</head>
+
+<style>
+  div.spongebob:hover>div.mouthAndCheeks {
+    --closeMouth: 1;
+  }
+  .spongebob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+
+<body>
+  <div class="spongebob">
+    <div class="body">
+      <div class="head">
+        <div class="eyes">
+          <div class="eyeBox">
+            <div class="eyelashes">
+              <div class="eyelash" style="--r:-1;"></div>
+              <div class="eyelash" style="--r:0;"></div>
+              <div class="eyelash" style="--r:1;"></div>
+            </div>
+            <div class="eye">
+              <div class="pupil"></div>
+            </div>
+          </div>
+          <div class="eyeBox">
+            <div class="eyelashes">
+              <div class="eyelash" style="--r:-1;"></div>
+              <div class="eyelash" style="--r:0;"></div>
+              <div class="eyelash" style="--r:1;"></div>
+            </div>
+            <div class="eye">
+              <div class="pupil"></div>
+            </div>
+          </div>
+        </div>
+        <div class="nose">
+          <div></div>
+        </div>
+        <div class="mouthAndCheeks" style="--highCheeks: 0;--closeMouth: 1;">
+          <div class="mouth">
+            <div class="inside">
+              <div class="theeths">
+                <div class="theeth"></div>
+                <div class="theeth"></div>
+              </div>
+              <div class="throat">
+                <div class="bell"></div>
+              </div>
+              <div class="tongue"></div>
+              <div class="detail"></div>
+            </div>
+          </div>
+          <div class="cheeks">
+            <div class="l cheek">
+              <div class="freckles">
+                <div class="freckle" style="--x: 2.4;--y: 2.4;"></div>
+                <div class="freckle" style="--x: 4.2;--y: 5.8;"></div>
+                <div class="freckle" style="--x: 7.6;--y: 3.4;"></div>
+              </div>
+            </div>
+            <div class="r cheek">
+              <div class="freckles">
+                <div class="freckle" style="--x: 2.1;--y: 1.3;"></div>
+                <div class="freckle" style="--x: 3.7;--y: 5.1;"></div>
+                <div class="freckle" style="--x: 6.8;--y: 2.6;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shirt">
+        <div class="tie"></div>
+      </div>
+      <div class="short">
+        <div class="belt"></div>
+      </div>
+      <div class="legs">
+        <div class="l leg"></div>
+        <div class="r leg"></div>
+      </div>
+
+      <span class="hole" style="--t: 1.9;--s: 1.5;--x: 1;--y: 2.9;"></span>
+      <span class="hole" style="--t: 0.9;--s: 0.6;--x: 1.4;--y: 7.9;"></span>
+      <span class="hole" style="--t: 0.9;--s: 1;--x: 21.5;--y: 2.1;"></span>
+      <span class="hole" style="--t: 0.5;--s: 0.6;--x: 2.2;--y: 18.9;"></span>
+      <span class="hole" style="--t: 2.2;--s: 1.4;--x: 2.7;--y: 21.5;"></span>
+      <span class="hole" style="--t: 2.6;--s: 1.5;--x: 20.9;--y: 17.5;"></span>
+      <span class="hole" style="--t: 1;--s: 0.6;--x: 21.5;--y: 23;"></span>
+    </div>
+  </div>
+  <div>
+    <div>
+      <button onclick="spongebob.mouthAndCheeks.style = `--highCheeks: 1;--closeMouth: 0;`;">open</button>
+      <button onclick="spongebob.mouthAndCheeks.style = `--highCheeks: 0;--closeMouth: 1;`;">close</button>
+    </div>
+    <br>
+    <div>
+      Auto mouth
+      <br>
+      <button onclick="start(25, 0.05)">Start</button>
+      <button onclick="stop(interval)">Stop</button>
+    </div>
+
+  </div>
+  <script>
+    var interval = 0
+    const spongebob = {
+      element: document.querySelector("div.spongebob")
+      , mouthAndCheeks: document.querySelector("div.spongebob div.head div.mouthAndCheeks")
+    };
+
+    spongebob.element.style.transition = "all 2s";
+    spongebob.element.addEventListener("mousedown", () => {
+      spongebob.mouthAndCheeks.style = "--highCheeks: 1;--closeMouth: 0;"
+    });
+    spongebob.element.addEventListener("mouseup", () => {
+      spongebob.mouthAndCheeks.style = "--highCheeks: 0;--closeMouth: 1;"
+    });
+
+    const start = (x, count = 0.05) => {
+      if (interval) return
+      let v1 = 1;
+      let v2 = 0;
+      let returning = false;
+
+      interval = setInterval(() => {
+        spongebob.mouthAndCheeks.style = `--highCheeks: ${v1};--closeMouth: ${v2};`;
+
+        if (v1 <= 0) {
+          returning = false;
+        } else if (v1 >= 1) {
+          returning = true
+        }
+
+        if (returning) {
+          v1 -= count;
+          v2 += count;
+        } else {
+          v1 += count;
+          v2 -= count;
+        }
+      }, x);
+    }
+    const stop = (interval) => {
+      clearInterval(interval)
+      interval = null
+    }
+
+    const retina = document.querySelectorAll("div.spongebob div.head div.eyes .pupil")
+
+
+    window.addEventListener("mousemove", (e) => {
+      e = e || window.event;
+
+      //Position of cursor in pixel
+      const { pageX, pageY } = e;
+
+      //Available area of window
+      const { innerWidth, innerHeight } = window;
+
+      //Cursor left position in percentage
+      let left = (pageX / innerWidth) * 100;
+
+      //Cursor top  position in percentage
+      let top = (pageY / innerHeight) * 100;
+
+      //Prevent the eye from getting hidden at the left and right end.
+      left = left < 30 ? 30 : left;
+      left = left > 70 ? 70 : left;
+      top = top < 30 ? 30 : top;
+      top = top > 70 ? 70 : top;
+
+      //Move the eye
+      retina.forEach((f) => {
+        //If the cursor is in center of both the eyes the keep the eye in center
+        f.style.left = `${left > 47 && left < 53 ? 50 : left}%`;
+        f.style.top = `${top > 47 && top < 53 ? 50 : top}%`;
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+@mixin mouth($scale, $bodyColor, $borderSize, $borderColor, $mouthInsideColor, $theethColor, $throatColor, $bellColor, $tongueColor, $mouthBorderColor) {
+
+    div.mouth {
+        --closeMouthpenMouth: calc(#{30px * $scale} * var(--closeMouth, 1));
+
+        width: #{71px * $scale};
+        height: #{45px * $scale};
+        border: $borderSize solid $borderColor;
+        border-radius: 50%;
+        border-color: transparent transparent $borderColor transparent;
+        z-index: -1;
+
+        position: absolute;
+        top: #{15.5px * $scale};
+        left: #{13px * $scale};
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: #{58px * $scale};
+            height: calc(#{78px * $scale} - var(--closeMouthpenMouth));
+            border: $borderSize solid $borderColor;
+            border-radius: 50%;
+            border-color: transparent $borderColor $borderColor $borderColor;
+
+            z-index: -2;
+            top: #{-5.5px * $scale};
+            left: #{6.5px * $scale};
+            background-color: $mouthInsideColor;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: #{71px * $scale};
+            height: #{52px * $scale};
+            border-radius: 47%;
+            z-index: -2;
+            top: #{-7.4px * $scale};
+            background-color: $bodyColor;
+            border: $borderSize solid;
+            border-style: none none solid none;
+        }
+
+        div.inside {
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                $s: #{11px * $scale};
+                background-color: $bodyColor;
+                width: $s;
+                height: $s;
+                top: #{21px * $scale};
+                left: #{-3px* $scale};
+                z-index: 10;
+            }
+
+            &::after {
+                left: #{65px * $scale};
+            }
+
+            div.theeths {
+                z-index: 1;
+                position: absolute;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                top: #{13px * $scale};
+                left: 50%;
+                transform: translateX(-50%);
+
+                div.theeth {
+                    width: #{10px * $scale};
+                    height: #{11px * $scale};
+                    background-color: $theethColor;
+                    position: relative;
+                    top: #{29px * $scale};
+                    margin-right: #{3px * $scale};
+                    z-index: -1;
+                    border-radius: #{0.5px * $scale};
+
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: #{71px * $scale};
+                    height: #{52px * $scale};
+                    border-radius: 47%;
+                    z-index: -2;
+                    top: #{-20px * $scale};
+                    background-color: $bodyColor;
+                    z-index: 100;
+                    border: $borderSize solid black;
+                    border-style: none none solid none;
+
+                }
+            }
+
+            div.throat {
+                width: #{22px * $scale};
+                height: #{15px * $scale};
+                background-color: $throatColor;
+                position: absolute;
+                top: calc(#{57px * $scale} - var(--closeMouthpenMouth));
+                left: #{25px * $scale};
+                border-radius: 50%;
+
+                div.bell {
+                    $s: #{4px * $scale};
+                    position: absolute;
+                    width: $s;
+                    height: $s;
+                    top: #{3px * $scale};
+                    left: #{9px * $scale};
+                    background-color: $bellColor;
+                    border-radius: 50%;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: #{1.5px * $scale};
+                        height: $s;
+                        top: #{-4px * $scale};
+                        left: #{1.25px * $scale};
+                        background-color: $bellColor;
+                    }
+                }
+            }
+
+            div.tongue {
+                position: absolute;
+                top: calc(#{63.5px * $scale} - var(--closeMouthpenMouth));
+                left: #{32px * $scale};
+                border-radius: 50%;
+
+                width: #{17px * $scale};
+                height: #{10px * $scale};
+                background-color: $tongueColor;
+                border: $borderSize solid $mouthBorderColor;
+                border-color: $mouthBorderColor transparent transparent $mouthBorderColor;
+
+                width: #{17px * $scale};
+                height: #{10px * $scale};
+                background-color: $tongueColor;
+                transform: rotate(-5deg);
+                border: $borderSize solid $mouthBorderColor;
+                border-color: $mouthBorderColor $mouthBorderColor transparent transparent;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: #{17px * $scale};
+                    height: #{10px * $scale};
+                    background-color: $tongueColor;
+                    border: $borderSize solid $mouthBorderColor;
+                    border-color: $mouthBorderColor transparent transparent $mouthBorderColor;
+                    transform: rotate(5deg);
+                    left: #{-12px * $scale};
+                    top: #{-1.5px * $scale};
+                    border-radius: 50%;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: #{58.5px * $scale};
+                    height: #{87.8px * $scale};
+                    border: #{10px * $scale} solid $bodyColor;
+                    border-radius: 50%;
+                    border-style: none solid solid solid;
+                    z-index: 2;
+                    top: #{-78.5px * $scale};
+                    left: #{-32.7px * $scale};
+                    transform: rotate(5deg);
+                    z-index: 10;
+                }
+            }
+
+            div.detail {
+                position: absolute;
+                width: #{58px * $scale};
+                height: #{78px  * $scale};
+                border: calc(#{$borderSize} + #{0.01px*$scale}) solid black;
+                border-radius: 50%;
+                border-style: none none solid none;
+
+                z-index: 3;
+                top: calc(#{-4.9px * $scale} - var(--closeMouthpenMouth));
+                left: #{7px * $scale};
+                z-index: 0;
+
+                &::before,
+                &::after {
+                    --l: calc(#{0.2px * $scale} / (var(--closeMouth, 0) + 1));
+                    --s: #{2px * $scale};
+                    --r: calc(#{5deg * $scale} + (#{5deg * $scale} * (var(--closeMouth, 0) * -1)));
+                    --p: calc(var(--s) * var(--closeMouth, 0));
+                    content: "";
+                    position: absolute;
+                    top: calc(#{75px * $scale} + (#{10px * $scale} * var(--closeMouth)));
+                    left: calc((#{10.2px * $scale} + var(--s) + var(--l)) - var(--p));
+                    width: #{20px * $scale};
+                    height: #{10px * $scale};
+                    border: $borderSize solid $queixoBorderColor;
+                    border-radius: 50%;
+                    border-color: transparent transparent $queixoBorderColor transparent;
+                    transform: rotate(var(--r));
+                }
+
+                &::after {
+                    transform: rotate(calc(var(--r) * -1));
+                    left: calc((#{25.8px * $scale} - var(--s) + var(--l)) + var(--p));
+                }
+            }
+        }
+    }
+}

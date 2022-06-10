@@ -1,0 +1,8 @@
+@mixin borders($borderColor) {
+
+    div.eye,
+    div.pupil,
+    div.theeth {
+        border: $borderSize solid $borderColor;
+    }
+}

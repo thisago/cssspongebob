@@ -1,0 +1,390 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.spongebob div.body {
+  border: 5px solid #908c00;
+  z-index: 1;
+  width: 500px;
+  height: 650px;
+  background: #F6EF00;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+}
+div.spongebob div.body .hole {
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+  --p: calc(12.5px * var(--t));
+  --n: calc(0.5 * var(--s) * 100px + (var(--p) * -1));
+  width: var(--n);
+  height: calc(var(--n) + var(--p));
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  top: calc(var(--y) * 20px);
+  left: calc(var(--x) * 20px);
+  z-index: -1;
+}
+div.spongebob div.body div.eye,
+div.spongebob div.body div.pupil,
+div.spongebob div.body div.theeth {
+  border: 2.5px solid black;
+}
+div.spongebob div.body div.eyes {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+}
+div.spongebob div.body div.eyes div.eyeBox {
+  position: relative;
+}
+div.spongebob div.body div.eyes div.eyeBox div.eye {
+  width: 155px;
+  height: 160px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.spongebob div.body div.eyes div.eyeBox div.eye:nth-child(2) {
+  margin-left: -1px;
+}
+div.spongebob div.body div.eyes div.eyeBox div.eye div.pupil {
+  width: 57.5px;
+  height: 60px;
+  background: #4AC3EB;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+div.spongebob div.body div.eyes div.eyeBox div.eye div.pupil::before {
+  content: "";
+  position: absolute;
+  width: 27.5px;
+  height: 30px;
+  background: black;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+div.spongebob div.body div.eyes div.eyeBox div.eyelashes {
+  z-index: -1;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+div.spongebob div.body div.eyes div.eyeBox div.eyelashes div.eyelash {
+  background: rgb(0, 0, 0);
+  width: 5.225px;
+  height: 60px;
+  transform: rotate(calc(35deg * var(--r)));
+  margin: 13.5px;
+  position: relative;
+  border-radius: 10px;
+}
+div.spongebob div.body div.eyes div.eyeBox div.eyelashes div.eyelash:nth-child(2) {
+  bottom: 5px;
+}
+div.spongebob div.body div.nose {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #F6EF00;
+  border: 2.5px solid black;
+  top: 195px;
+  left: 225px;
+  transform: rotate(5deg);
+}
+div.spongebob div.body div.nose::before {
+  content: "";
+  position: absolute;
+  top: calc(50% + 22.5px);
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #F6EF00;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+div.spongebob div.body div.nose div {
+  position: relative;
+  top: 20px;
+  left: 25px;
+  background: #F6EF00;
+  width: 25px;
+  height: 50px;
+  border-radius: 50%;
+}
+div.spongebob div.body div.nose div::before, div.spongebob div.body div.nose div::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 30px;
+}
+div.spongebob div.body div.nose div::before {
+  width: calc(2.5px);
+  height: 35px;
+  left: -19px;
+  background: black;
+  transform: translate(-50%, -50%) rotate(-18deg);
+}
+div.spongebob div.body div.nose div::after {
+  width: 26px;
+  height: 65px;
+  left: 9px;
+  background: transparent;
+  transform: translate(-50%, -50%) rotate(17deg);
+  border-radius: 50%;
+  border: 2.5px solid;
+  border-color: transparent black transparent transparent;
+  z-index: 1;
+}
+div.spongebob div.body div.cheeks {
+  position: absolute;
+}
+div.spongebob div.body div.cheeks div.cheek {
+  background: #F6EF00;
+  width: 83.75px;
+  height: 71.25px;
+  border-radius: 50%;
+  border: 2.5px rgba(144, 140, 0, var(--highCheeks, 1));
+  position: absolute;
+  border-style: none solid solid none;
+  top: calc(230px - (25px * var(--highCheeks, 1)));
+}
+div.spongebob div.body div.cheeks div.l {
+  transform: rotate(6deg);
+  left: 38.5px;
+}
+div.spongebob div.body div.cheeks div.r {
+  transform: rotateY(180deg);
+  left: 372.5px;
+}
+div.spongebob div.body div.cheeks div.freckles {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  left: 20px;
+  top: 10px;
+}
+div.spongebob div.body div.cheeks div.freckles div.freckle {
+  position: absolute;
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  background: #8b7000;
+  --l: calc(5px * var(--x));
+  --t: calc(5px * var(--y));
+  left: var(--l);
+  top: var(--t);
+}
+div.spongebob div.body div.mouth {
+  --closeMouthpenMouth: calc(150px * var(--closeMouth, 1));
+  width: 355px;
+  height: 225px;
+  border: 2.5px solid black;
+  border-radius: 50%;
+  border-color: transparent transparent black transparent;
+  z-index: -1;
+  position: absolute;
+  top: 77.5px;
+  left: 65px;
+}
+div.spongebob div.body div.mouth::before {
+  content: "";
+  position: absolute;
+  width: 290px;
+  height: calc(390px - var(--closeMouthpenMouth));
+  border: 2.5px solid black;
+  border-radius: 50%;
+  border-color: transparent black black black;
+  z-index: -2;
+  top: -27.5px;
+  left: 32.5px;
+  background-color: #6D0201;
+}
+div.spongebob div.body div.mouth::after {
+  content: "";
+  position: absolute;
+  width: 355px;
+  height: 260px;
+  border-radius: 47%;
+  z-index: -2;
+  top: -37px;
+  background-color: #F6EF00;
+  border: 2.5px solid;
+  border-style: none none solid none;
+}
+div.spongebob div.body div.mouth div.inside::before, div.spongebob div.body div.mouth div.inside::after {
+  content: "";
+  position: absolute;
+  background-color: #F6EF00;
+  width: 55px;
+  height: 55px;
+  top: 105px;
+  left: -15px;
+  z-index: 10;
+}
+div.spongebob div.body div.mouth div.inside::after {
+  left: 325px;
+}
+div.spongebob div.body div.mouth div.inside div.theeths {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+div.spongebob div.body div.mouth div.inside div.theeths div.theeth {
+  width: 50px;
+  height: 55px;
+  background-color: white;
+  position: relative;
+  top: 145px;
+  margin-right: 15px;
+  z-index: -1;
+  border-radius: 2.5px;
+}
+div.spongebob div.body div.mouth div.inside div.theeths div.theeth:last-child {
+  margin: 0;
+}
+div.spongebob div.body div.mouth div.inside div.theeths::before {
+  content: "";
+  position: absolute;
+  width: 355px;
+  height: 260px;
+  border-radius: 47%;
+  z-index: -2;
+  top: -100px;
+  background-color: #F6EF00;
+  z-index: 100;
+  border: 2.5px solid black;
+  border-style: none none solid none;
+}
+div.spongebob div.body div.mouth div.inside div.throat {
+  width: 110px;
+  height: 75px;
+  background-color: #4F0102;
+  position: absolute;
+  top: calc(285px - var(--closeMouthpenMouth));
+  left: 125px;
+  border-radius: 50%;
+}
+div.spongebob div.body div.mouth div.inside div.throat div.bell {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 15px;
+  left: 45px;
+  background-color: #6D0201;
+  border-radius: 50%;
+}
+div.spongebob div.body div.mouth div.inside div.throat div.bell::before {
+  content: "";
+  position: absolute;
+  width: 7.5px;
+  height: 20px;
+  top: -20px;
+  left: 6.25px;
+  background-color: #6D0201;
+}
+div.spongebob div.body div.mouth div.inside div.tongue {
+  position: absolute;
+  top: calc(317.5px - var(--closeMouthpenMouth));
+  left: 160px;
+  border-radius: 50%;
+  width: 85px;
+  height: 50px;
+  background-color: #EF5D79;
+  border: 2.5px solid #8E021B;
+  border-color: #8E021B transparent transparent #8E021B;
+  width: 85px;
+  height: 50px;
+  background-color: #EF5D79;
+  transform: rotate(-5deg);
+  border: 2.5px solid #8E021B;
+  border-color: #8E021B #8E021B transparent transparent;
+}
+div.spongebob div.body div.mouth div.inside div.tongue::before {
+  content: "";
+  position: absolute;
+  width: 85px;
+  height: 50px;
+  background-color: #EF5D79;
+  border: 2.5px solid #8E021B;
+  border-color: #8E021B transparent transparent #8E021B;
+  transform: rotate(5deg);
+  left: -60px;
+  top: -7.5px;
+  border-radius: 50%;
+}
+div.spongebob div.body div.mouth div.inside div.tongue::after {
+  content: "";
+  position: absolute;
+  width: 292.5px;
+  height: 439px;
+  border: 50px solid #F6EF00;
+  border-radius: 50%;
+  border-style: none solid solid solid;
+  z-index: 2;
+  top: -392.5px;
+  left: -163.5px;
+  transform: rotate(5deg);
+  z-index: 10;
+}
+div.spongebob div.body div.mouth div.inside div.detail {
+  position: absolute;
+  width: 290px;
+  height: 390px;
+  border: calc(2.5px + 0.05px) solid black;
+  border-radius: 50%;
+  border-style: none none solid none;
+  z-index: 3;
+  top: calc(-24.5px - var(--closeMouthpenMouth));
+  left: 35px;
+  z-index: 0;
+}
+div.spongebob div.body div.mouth div.inside div.detail::before, div.spongebob div.body div.mouth div.inside div.detail::after {
+  --l: calc(1px / (var(--closeMouth, 0) + 1));
+  --s: 10px;
+  --r: calc(25deg + (25deg * (var(--closeMouth, 0) * -1)));
+  --p: calc(var(--s) * var(--closeMouth, 0));
+  content: "";
+  position: absolute;
+  top: calc(375px + (50px * var(--closeMouth)));
+  left: calc((51px + var(--s) + var(--l)) - var(--p));
+  width: 100px;
+  height: 50px;
+  border: 2.5px solid #b38300;
+  border-radius: 50%;
+  border-color: transparent transparent #b38300 transparent;
+  transform: rotate(var(--r));
+}
+div.spongebob div.body div.mouth div.inside div.detail::after {
+  transform: rotate(calc(var(--r) * -1));
+  left: calc((129px - var(--s) + var(--l)) + var(--p));
+}

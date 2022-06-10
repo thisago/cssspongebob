@@ -1,0 +1,11 @@
+@mixin body($scale, $bodyColor, $bodyBorderColor) {
+    border: #{1px * $scale} solid $bodyBorderColor;
+
+    z-index: 1;
+    width: #{100px * $scale};
+    height: #{130px * $scale};
+    background: $bodyColor;
+    border-radius: #{5px * $scale};
+    position: relative;
+    overflow: hidden;
+}

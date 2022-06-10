@@ -1,0 +1,27 @@
+$scale: 5;
+$hairColor: rgb(0, 0, 0);
+$bodyColor: #F6EF00;
+$holeColor: linear-gradient(-45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+$eyeBackgroundColor: rgb(255, 255, 255);
+$eyeColor: #4AC3EB;
+$pupilColor: black;
+
+$borderSize: #{0.5px * $scale};
+$borderColor: black;
+$bodyBorderColor: darken($bodyColor, 20);
+
+$queixoBorderColor: #b38300;
+$cheeksBorderColor: $bodyBorderColor;
+
+$freckleColor: #8b7000;
+
+$mouthInsideColor: #6D0201;
+$throatColor: #4F0102;
+$bellColor: $mouthInsideColor;
+$tongueColor: #EF5D79;
+
+$mouthBorderColor: #8E021B;
+
+$theethColor: white;
+
+$shirtBackgroundColor: #FEFEFC;

@@ -1,0 +1,11 @@
+@mixin shirt {
+
+    // ($scale, $shirtBackgroundColor)
+    div.shirt {
+        position: absolute;
+        width: 100%;
+        height: #{25px * $scale};
+        background-color: $shirtBackgroundColor;
+        bottom: 0;
+    }
+}

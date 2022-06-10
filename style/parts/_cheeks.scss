@@ -1,0 +1,64 @@
+@mixin cheeks($scale, $bodyColor, $cheeksBorderColor, $freckleColor) {
+    div.cheeks {
+        position: absolute;
+
+        div.cheek {
+            background: $bodyColor;
+            width: #{16.75px * $scale};
+            height: #{14.25px * $scale};
+            border-radius: 50%;
+            border: $borderSize rgba($cheeksBorderColor, var(--highCheeks, 1));
+            position: absolute;
+            border-style: none solid solid none;
+
+            top: calc(#{46px * $scale} - (#{5px * $scale} * var(--highCheeks, 1)));
+        }
+
+        div.l {
+            transform: rotate(6deg);
+            left: #{7.7px* $scale};
+        }
+
+        div.r {
+            transform: rotateY(180deg);
+            left: #{74.5px * $scale};
+        }
+
+        div.freckles {
+            $s: #{10px * $scale};
+
+            position: relative;
+            width: $s;
+            height: $s;
+            border-radius: 50%;
+            left: #{4px * $scale};
+            top: #{2px * $scale};
+
+            div.freckle {
+                $s: #{1.5px * $scale};
+                position: absolute;
+                width: $s;
+                height: $s;
+                border-radius: 50%;
+                background: $freckleColor;
+
+                $t: #{1px * $scale};
+                --l: calc(#{$t} * var(--x));
+                --t: calc(#{$t} * var(--y));
+
+                left: var(--l);
+                top: var(--t);
+            }
+        }
+    }
+
+    // div.mouth {
+
+    //     ~div.cheeks {
+
+    //         div.cheek {
+    //             border-color: rgba($cheeksBorderColor, );
+    //         }
+    //     }
+    // }
+}

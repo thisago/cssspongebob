@@ -1,0 +1,70 @@
+@mixin nose ($scale, $bodyColor, $borderColor) {
+    div.nose {
+        $s: #{10px * $scale};
+        position: absolute;
+        width: $s;
+        height: $s;
+        border-radius: 50%;
+        background: $bodyColor;
+        border: $borderSize solid $borderColor;
+        top: #{39px * $scale};
+        left: #{45px * $scale};
+        transform: rotate(5deg);
+
+        &::before {
+            $s: #{8.8px * $scale};
+            content: "";
+            position: absolute;
+            top: calc(50% + #{4.5px * $scale});
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: $bodyColor;
+            width: #{$s};
+            height: #{$s};
+            border-radius: 50%;
+        }
+
+        div {
+            position: relative;
+            // top: #{10px * $scale};
+            // left: #{4px * $scale};
+            top: #{4px * $scale};
+            left: #{5px * $scale};
+
+            background: $bodyColor;
+            width: #{5px * $scale};
+            height: #{10px * $scale};
+            border-radius: 50%;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                top: #{6px * $scale};
+            }
+
+            &::before {
+                width: calc(#{$borderSize});
+                height: #{7px * $scale};
+                left: #{-3.8px * $scale};
+                background: $borderColor;
+                transform: translate(-50%, -50%) rotate(-18deg);
+            }
+
+            &::after {
+                width: #{5.2px * $scale};
+                height: #{13px * $scale};
+                left: #{1.8px * $scale};
+                background: transparent;
+                transform: translate(-50%, -50%) rotate(17deg);
+                border-radius: 50%;
+                border: $borderSize solid;
+                border-color: transparent $borderColor transparent transparent;
+                z-index: 1;
+            }
+        }
+    }
+}

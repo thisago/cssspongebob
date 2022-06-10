@@ -1,0 +1,55 @@
+@import "vars";
+
+@import "parts";
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.spongebob {
+  div.body {
+    @include body($scale, $bodyColor, $bodyBorderColor);
+
+    // holes
+    @include hole($scale, $holeColor);
+
+    // head
+
+    // borders
+    @include borders($borderColor);
+
+    // eyes
+    @include eyes(
+      $scale,
+      $eyeBackgroundColor,
+      $eyeColor,
+      $pupilColor,
+      $hairColor
+    );
+
+    // nose
+    @include nose($scale, $bodyColor, $borderColor);
+
+    // cheeks
+    @include cheeks($scale, $bodyColor, $cheeksBorderColor, $freckleColor);
+
+    // mouth
+    @include mouth(
+      $scale,
+      $bodyColor,
+      $borderSize,
+      $borderColor,
+      $mouthInsideColor,
+      $theethColor,
+      $throatColor,
+      $bellColor,
+      $tongueColor,
+      $mouthBorderColor
+    );
+
+    // shirt
+    // @include shirt;
+  }
+}
