@@ -154,9 +154,9 @@
         }
       }, x);
     }
-    const stop = (interval) => {
+    const stop = () => {
       clearInterval(interval)
-      interval = null
+      interval = 0
     }
 
     const retina = document.querySelectorAll("div.spongebob div.head div.eyes .pupil")
